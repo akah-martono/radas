@@ -1,0 +1,111 @@
+/* :root{
+    --rds-p: 0;
+    --rds-xp: 0;
+    --rds-yp: 0;
+    
+    --rds-tp: 0;
+    --rds-rp: 0;
+    --rds-bp: 0;
+    --rds-lp: 0;
+} */
+
+[class^="p-"], [class*=" p-"]{
+    margin: var(--rds-p);
+}
+
+[class^="xp-"], [class*=" xp-"]{
+    margin-left: var(--rds-xp);
+    margin-right: var(--rds-xp);
+}
+
+[class^="yp-"], [class*=" yp-"]{
+    margin-top: var(--rds-yp);
+    margin-bottom: var(--rds-yp);
+}
+
+[class^="tp-"], [class*=" tp-"]{
+    margin-top: var(--rds-tp);
+}
+
+[class^="rp-"], [class*=" rp-"]{
+    margin-right: var(--rds-rp);
+}
+
+[class^="bp-"], [class*=" bp-"]{
+    margin-bottom: var(--rds-bp);
+}
+
+.p-8 {
+    --rds-p: 8px;
+}
+.p-16 {
+    --rds-p: 16px;
+}
+.p-24 {
+    --rds-p: 24px;
+}
+.p-32 {
+    --rds-p: 32px;
+}
+.p-40 {
+    --rds-p: 40px;
+}
+.p-48 {
+    --rds-p: 48px;
+}
+.p-56 {
+    --rds-p: 56px;
+}
+.p-64 {
+    --rds-p: 64px;
+}
+
+.xp-8 {
+    --rds-xp: 8px    
+}
+.xp-16 {
+    --rds-xp: 16px
+}
+.xp-24 {
+    --rds-xp: 24px
+}
+.xp-32 {
+    --rds-xp: 32px
+}
+.xp-40 {
+    --rds-xp: 40px;
+}
+.xp-48 {
+    --rds-xp: 48px;
+}
+.xp-56 {
+    --rds-xp: 56px;
+}
+.xp-64 {
+    --rds-xp: 64px;
+}
+
+.yp-8 {
+    --rds-yp: 8px;
+}
+.yp-16 {
+    --rds-yp: 16px;
+}
+.yp-24 {
+    --rds-yp: 24px;
+}
+.yp-32 {
+    --rds-yp: 32px;
+}
+.yp-40 {
+    --rds-yp: 40px;
+}
+.yp-48 {
+    --rds-yp: 48px;
+}
+.yp-56 {
+    --rds-yp: 56px;
+}
+.yp-64 {
+    --rds-yp: 64px;
+}

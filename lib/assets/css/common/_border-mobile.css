@@ -1,0 +1,9 @@
+@media only screen and (max-width: 782px) {
+    .rm-border {border: thin solid #c3c4c7;}
+    .rm-border-x {border-left: thin solid #c3c4c7; border-right: thin solid #c3c4c7;}
+    .rm-border-y {border-top: thin solid #c3c4c7; border-bottom: thin solid #c3c4c7;}
+    .rm-border-t {border-top: thin solid #c3c4c7;}
+    .rm-border-r {border-right: thin solid #c3c4c7;}
+    .rm-border-b {border-bottom: thin solid #c3c4c7;}
+    .rm-border-l {border-left: thin solid #c3c4c7;}    
+}

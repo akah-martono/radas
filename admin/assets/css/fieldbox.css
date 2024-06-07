@@ -1,0 +1,288 @@
+#btn_choose_icon {
+    line-height: unset;
+}    
+
+#rds-page button {
+    margin: 0;
+}
+
+#rds-page .form-table th {
+    width: 160px;
+    min-width: 120px;
+}
+
+#option-page-list {
+    font-size: 14px;
+}
+
+#rds-fields-box-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#rds-fields-box-wrapper > .rds-fields-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#rds-fields-box-wrapper button.button {
+    line-height: unset;
+}
+
+#rds-page-title {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: white;
+    padding: 8px 20px;
+    border-bottom: thin solid rgb(195, 196, 199, 0.75);    
+    align-items: center;
+    h1{
+        font-size: x-large;
+        margin: .5em 0;    
+    }
+
+    button {
+        padding: 0 12px;
+        height: fit-content;
+        min-height: 32px;        
+    }    
+}
+#rds-header {
+    display: flex;
+}
+#rds-page-footer {
+    padding: 20px;
+    border-top: thin solid rgb(195, 196, 199, 0.75);
+}
+
+.rds-field-box-icon-wrapper {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 150px;
+}
+
+.rds-field-box-icon-wrapper > * {
+    flex-basis: calc(100% / 3);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.btn-expanse-collapse:hover, .field-shortcode:hover {
+    background-color: #d5d5d5;
+}
+
+.field-shortcode:disabled {
+    background-color: unset;
+}
+
+.btn-expanse-collapse {
+    font-size: x-large;
+    outline: 0;
+}
+
+.rds-field-box-title-text {
+    display: inline-flex;
+    width: fit-content;
+}
+
+.rds-field-box-title .rds-field-box-title-text {
+    cursor: pointer;
+    align-items: center;
+}
+
+.rds-field-box-header h2 {
+    margin: 0;
+    padding: 4px 0;
+}
+
+.move-handle-wrapper {
+    align-content: center;
+    aspect-ratio: 1;
+    text-align: center;
+}
+
+.rds-fields-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.rds-field-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.rds-field-box {
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.rds-field-box-header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.rds-field-box-inside {
+    background-color: #f6f7f7;
+}
+
+.rds-icon {
+    display: inline-block;    
+}
+
+.rds-field-box-title {
+    display: flex;
+    width: 100%;
+}
+
+.rds-field-attr {
+    font-size: large;
+}
+
+table.rds-field-attributes-table, table.rds-field-options-table {
+    width: 100%;
+}
+
+.rds-field-attributes-table td, .rds-field-options-table td  {
+    vertical-align: top;
+}
+
+table.rds-field-attributes-table .att-name {
+    width: 35%;
+}
+
+table.rds-field-attributes-table .att-move, table.rds-field-attributes-table .att-remove {
+    padding-top: 6px;
+    width: 1.5em;
+}
+
+table.rds-field-attributes-table .opt-move {
+    text-align: right;
+}
+
+table.rds-field-attributes-table .att-name, table.rds-field-attributes-table .att-value{
+    text-align: left;
+}
+
+table.rds-field-attributes-table .att-remove{
+    text-align: right;
+}
+
+table.rds-field-options-table .opt-move, table.rds-field-options-table .opt-remove, table.rds-field-options-table .opt-default {
+    padding-top: 6px;
+}
+
+table.rds-field-options-table .opt-value {
+    width: 35%;
+}
+
+table.rds-field-options-table .opt-move, table.rds-field-options-table .opt-default {
+    text-align: right;
+    width: 2em;
+}
+
+table.rds-field-options-table .opt-remove {
+    width: 1.5em;
+}
+
+table.rds-field-options-table .opt-default {
+    text-align: center;
+}
+
+table.rds-field-options-table .opt-value, table.rds-field-options-table .opt-text {
+    text-align: left;
+}
+
+table.rds-field-options-table .opt-remove {
+    text-align: right;
+}
+
+table.rds-field-options-table .clear-opt-default {
+    width: 4em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.move-handle, .rds-field-box-title {
+    cursor: all-scroll;
+}
+
+.dashicons.dashicons-remove, .dashicons.dashicons.dashicons-trash {
+    cursor: pointer;
+}
+
+.rds-field-attribute-header, .rds-field-option-header, .rds-field-boxes-header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 3em;
+    align-items: center;
+    column-gap: 16px;
+    h3 {
+        margin: 0 0 8px;;
+    }
+}
+
+
+.dashicons.dashicons-remove:hover, .dashicons.dashicons-remove:focus, .dashicons.dashicons-trash:hover, .dashicons.dashicons-trash:focus{
+    color: crimson;
+    outline-color: crimson;
+}
+
+table.rds-field-options-table tbody tr:nth-child(1) .remove-option,
+table.rds-field-options-table tbody tr:nth-child(2) .remove-option{
+    display: none;
+}
+
+.rds-field-box.expanded > .el-wrapper .rds-field-box-inside {
+    display: block;
+}
+
+.rds-field-box.expanded > .el-wrapper .btn-expanse-collapse::before {
+    content: "\f142";
+}
+
+.rds-field-box > .el-wrapper .btn-expanse-collapse::before {
+    content: "\f140";
+}
+
+.rds-field-box-inside {
+    display: none;
+}
+
+.rds-field-box[data-type="container"], .rds-field-box[data-type="tabs"], .rds-field-box[data-type="tab"]  {
+    background-color: #f0f0f1;
+}
+
+.rds-field-box:last-child{
+    margin-bottom: 10px;
+}
+
+.rds-group-field {
+    display: flex;
+    background-color: #f0f0f1;
+    flex-direction: column;
+}
+
+.rds-field-box.removing .rds-field-box-title, .rds-field-box.removing .rds-field-box-title h2{
+    color: red !important;
+}
+
+td.move-handle > span.dashicons.dashicons-trash {
+    color: red !important;
+}
+
+.rds-field.field_id > th > label {
+    display: inline-flex;
+    align-items: center;  
+    column-gap: 10px;  
+}

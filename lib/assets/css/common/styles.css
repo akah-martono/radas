@@ -1,0 +1,38 @@
+@import url("_padding-general.css");
+@import url("_padding-mobile.css");
+@import url("_padding-desktop.css");
+
+@import url("_margin-general.css");
+@import url("_margin-mobile.css");
+@import url("_margin-desktop.css");
+
+@import url("_flex-basis-general.css");
+@import url("_flex-basis-mobile.css");
+@import url("_flex-basis-desktop.css");
+
+@import url("_border-general.css");
+@import url("_border-mobile.css");
+@import url("_border-desktop.css");
+
+@import url("_width-general.css");
+
+button.no-button, .button.no-button {
+    border: none;
+    background-color: unset;
+    padding: 0;   
+    cursor: pointer;
+}
+
+button.no-button:focus, .button.no-button:focus {
+    outline-style: auto;
+    outline-width: thin;
+    border-radius: 3px;
+}
+
+.hide-empty:empty {
+    display: none !important;
+}
+
+.hide {
+    display: none !important;
+}

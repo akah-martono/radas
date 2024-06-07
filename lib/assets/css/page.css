@@ -1,0 +1,56 @@
+@import url("general.css");
+
+span.rds-text-right {
+    padding-left: 0.5em;
+    line-height: 1.8em;
+}
+
+span.rds-text-left {
+    padding-right: 0.1em;
+    line-height: 1.8em;
+}
+
+table.rds-table input[type=checkbox], .rds-table input[type=radio] {
+    margin: 0;
+}
+
+table.rds-table {
+    height: fit-content;
+}
+
+select.rds-bold:disabled, input.rds-bold:disabled{
+    color: black;
+    font-weight: 600;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.rds-error-message {
+    display: block;
+    width: 100%;
+    padding: 4px 0;
+    color: crimson;
+    font-size: .9em;
+    font-weight: 600;
+    font-style: italic
+}
+
+.rds-error-message:empty {
+    display: none
+}
+
+#rds-page {
+    margin-left: -20px;
+
+    p.rds-description{
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 24px;        
+    }    
+}
+
+#rds-content{
+    padding: 20px;
+}
