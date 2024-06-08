@@ -68,6 +68,17 @@ class fieldBox extends elBinder {
                 'shortcode',
             ]
         },
+        email: {
+            classes: 'regular-text',   
+            fields: [
+                'label',
+                'name',
+                'description',
+                'default_value',
+                'classes',
+                'shortcode',
+            ]         
+        },
         password: {
             classes: 'regular-text',
             fields: [

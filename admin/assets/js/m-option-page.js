@@ -1,14 +1,32 @@
 import { showSpinner, popupAlert, getFormValue} from "../../../lib/assets/js/m-general.js";
 import { adminFlashNotice } from "../../../lib/assets/js/m-admin.js";
+import { setErrorMessage } from "../../../lib/assets/js/m-utils.js";
 
 const $=jQuery;
 
+const inputValidation= (input) => {
+    setErrorMessage(input);
+
+    // general validation
+    if (!input.checkValidity()) {
+        setErrorMessage(input, input.validationMessage);
+        return false;
+    }           
+
+    return true;
+}    
 
 $(document).ready(()=>{
     let lastFormData;
     
     const form = document.querySelector('form'); 
     lastFormData = getFormValue(form);
+
+    form.setAttribute('novalidate', true);
+
+    form.addEventListener('input', (e)=>{
+        inputValidation(e.target);
+    })
 
     form.addEventListener("submit", (e) => {
         showSpinner(true);   
@@ -21,6 +39,21 @@ $(document).ready(()=>{
             return;
         }
         
+        let isValid = true;
+        Object.values(document.querySelectorAll('.rds-input')).forEach((input) => {            
+            if (window.getComputedStyle(input.closest('.rds-field')).display !== "none"){
+                if(!inputValidation(input)) {                    
+                    isValid = false;
+                }
+            };
+        })   
+        
+        if(!isValid) {
+            popupAlert('Data Validation', 'Save failed, please check your input!');
+            showSpinner(false);
+            return;
+        }
+
         const formData = new FormData(form); 
     
         const url = wpApiSettings.root + form.getAttribute('data-endpoint');

@@ -1,9 +1,7 @@
 import { optTable } from "./m-option-page-cpt-table.js";
 import { page } from "./m-option-page-cpt-page.js";
 import { showSpinner, popupAlert, dialogBox } from "../../../lib/assets/js/m-general.js";
-import { adminFlashNotice } from "../../../lib/assets/js/m-admin.js";
 
-window.adminFlashNotice = adminFlashNotice;
 const $=jQuery;
 
 window.actions = {

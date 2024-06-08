@@ -20,6 +20,7 @@ use Radas\Lib\Elements\Fields\URL_Field;
 use Radas\Lib\Classes\Trait\Singleton;
 use Radas\Lib\Elements\Fields\Color_Field;
 use Radas\Lib\Elements\Fields\Editor_Field;
+use Radas\Lib\Elements\Fields\Email_Field;
 use Radas\Lib\Elements\Fields\Media_Field;
 use Radas\Lib\Elements\Fields\Password_Field;
 
@@ -43,6 +44,9 @@ class Element_Factory {
         if( $params['type'] == 'number' ) {
             $element = new Number_Field($params['name']);
         }
+        if( $params['type'] == 'email' ) {
+            $element = new Email_Field($params['name']);
+        }  
         if( $params['type'] == 'password' ) {
             $element = new Password_Field($params['name']);
         }        

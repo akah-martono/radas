@@ -73,6 +73,7 @@ class Field_Box_Template {
                                                     <option value="color">Color</option>
                                                     <option value="date">Date</option>
                                                     <option value="number">Number</option>
+                                                    <option value="email">Email</option>
                                                     <option value="password">Password</option>
                                                     <option value="phone">Phone</option>
                                                     <option value="radio">Radio</option>
