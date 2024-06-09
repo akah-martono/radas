@@ -1,8 +1,8 @@
 @media only screen and (max-width: 782px) {
-    .rm-basis-full	{flex-basis: 100%;}
-    .rm-basis-1\/2	{flex-basis: 50%;}
-    .rm-basis-1\/3	{flex-basis: 33.333333%;}
-    .rm-basis-2\/3	{flex-basis: 66.666667%;}
-    .rm-basis-1\/4	{flex-basis: 25%;}    
-    .rm-basis-3\/4	{flex-basis: 75%;}
+    .rm-basis-full	{flex-basis: 100% !important;}
+    .rm-basis-1\/2	{flex-basis: 50% !important;}
+    .rm-basis-1\/3	{flex-basis: 33.333333% !important;}
+    .rm-basis-2\/3	{flex-basis: 66.666667% !important;}
+    .rm-basis-1\/4	{flex-basis: 25% !important;}    
+    .rm-basis-3\/4	{flex-basis: 75% !important;}
 }

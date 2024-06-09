@@ -1,11 +1,11 @@
-.rg-border {border: thin solid #c3c4c7;}
-.rg-border-x {border-left: thin solid #c3c4c7; border-right: thin solid #c3c4c7;}
-.rg-border-y {border-top: thin solid #c3c4c7; border-bottom: thin solid #c3c4c7;}
-.rg-border-t {border-top: thin solid #c3c4c7;}
-.rg-border-r {border-right: thin solid #c3c4c7;}
-.rg-border-b {border-bottom: thin solid #c3c4c7;}
-.rg-border-l {border-left: thin solid #c3c4c7;}
-.rg-border-t-0 {border-top: unset;}
-.rg-border-r-0 {border-right: unset;}
-.rg-border-b-0 {border-bottom: unset;}
-.rg-border-l-0 {border-left: unset;}
+.rg-border {border: thin solid #c3c4c7 !important;}
+.rg-border-x {border-left: thin solid #c3c4c7 !important; border-right: thin solid #c3c4c7 !important;}
+.rg-border-y {border-top: thin solid #c3c4c7 !important; border-bottom: thin solid #c3c4c7 !important;}
+.rg-border-t {border-top: thin solid #c3c4c7 !important;}
+.rg-border-r {border-right: thin solid #c3c4c7 !important;}
+.rg-border-b {border-bottom: thin solid #c3c4c7 !important;}
+.rg-border-l {border-left: thin solid #c3c4c7 !important;}
+.rg-border-t-0 {border-top: unset !important;}
+.rg-border-r-0 {border-right: unset !important;}
+.rg-border-b-0 {border-bottom: unset !important;}
+.rg-border-l-0 {border-left: unset !important;}

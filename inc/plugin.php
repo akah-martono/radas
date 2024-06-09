@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action('rds_run', function () {
     /** run only once */
     if( did_action('rds_run') > 1 ) return;
+
+    // require_once("debug.php");
+    // rds_debug();
     
     add_action('init', 'rds_register_rest');
     add_action('init', 'rds_register_scripts');

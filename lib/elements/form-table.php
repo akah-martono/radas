@@ -64,7 +64,7 @@ class Form_Table extends Wrapper {
             } else {
                 ?>
                 <tr class="rds-field <?php echo esc_attr($element->id); ?>">
-                    <td colspan="2">
+                    <td colspan="2" class="rg-p-0">
                         <?php 
                         /** @var Element $element */
                         $element->render();

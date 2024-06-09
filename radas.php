@@ -26,6 +26,7 @@ define( 'RADAS_URL', plugin_dir_url( RADAS_PLUGIN_FILE ) );
 define( 'RADAS_DOMAIN', 'radas' );
 define( 'RADAS_PHONE_FORMAT', '3|0xxx-xxxx-xxxxx' );
 define( 'RADAS_REST_NAMESPACE', "radas/v1"  );
+define( 'RADAS_DEV_MODE', true  );
 
 // include
 require_once RADAS_PATH . 'inc/autoloader.php';
