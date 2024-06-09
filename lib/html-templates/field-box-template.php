@@ -46,7 +46,7 @@ class Field_Box_Template {
                     <div class="rds-field-box-header rg-border">
                         <div class="rds-field-box-title">
                             <div class="move-handle-wrapper">
-                                <span title="Move" class="move-handle-icon dashicons dashicons-move" data-move-el=".rds-field-box" tabindex="0" data-fbox-handle="move_handle"></span>
+                                <button title="Move" class="no-button move-handle-icon dashicons dashicons-move" data-move-el=".rds-field-box" tabindex="0" data-fbox-handle="move_handle"></button>
                             </div>
                             <div class="rds-field-box-title-text" data-fbox-handle="title_wrapper" data-clickable>
                             <h2 data-fbox-handle="fbox_title"></h2>

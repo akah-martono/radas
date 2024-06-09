@@ -3,6 +3,167 @@ import { keydownMoveIcon } from "../../../lib/assets/js/m-utils.js";
 
 const $=jQuery;
 
+const sortFBoxParams = {
+    handle:".rds-field-box-title",
+    placeholder: "rds-sortable-placeholder",
+
+    connectWith: ".rds-field-boxes",
+    forceHelperSize: true,
+    receive: function(e, ui) {
+        const fBoxReceiver = e.target.closest('.rds-field-box');
+        const typeReceiver = (null === fBoxReceiver) ? 'root' : fBoxReceiver.getAttribute('data-type');
+        const fBox = fBoxList.list[ui.item[0].id];
+
+        if(!fBox.wrappers.includes(typeReceiver)){
+            $(ui.sender).sortable("cancel");  
+        }
+    },
+    over: function(e, ui) {
+        const fBoxReceiver = e.target.closest('.rds-field-box');
+        const typeReceiver = (null === fBoxReceiver) ? 'root' : fBoxReceiver.getAttribute('data-type');
+        const fBox = fBoxList.list[ui.item[0].id];        
+        if(!fBox.wrappers.includes(typeReceiver)){
+            document.querySelector('.rds-sortable-placeholder').classList.toggle('hide', true);
+        } else {
+            document.querySelector('.rds-sortable-placeholder').classList.toggle('hide', false);
+        }
+    }
+}
+
+const keydownMoveIconFBox = (e) => { // ini nanti dicek
+    const icon = e.target;
+    const elMove = icon.closest('.rds-field-box');
+    const fBoxes = document.querySelectorAll(`.rds-field-box:not([id="${elMove.id}"] .rds-field-box)`)
+    let iMove = 0;
+
+
+    const moveUp = () =>{
+        let iPrev = 0;
+        let found = false, i = iMove;    
+        
+        let fBoxMove, fBoxPrev, fBoxPrevParentType;
+        fBoxMove = fBoxList.list[fBoxes[iMove].id];
+
+        i--;        
+        while( !found && i >=0 ){
+            fBoxPrev = fBoxList.list[fBoxes[i].id];
+
+            if(fBoxPrev.parentID == 'root'){
+                fBoxPrevParentType = 'root';    
+            } else {
+                fBoxPrevParentType = fBoxList.list[fBoxPrev.parentID].type;
+            }
+
+            // jika satu parent
+            if( fBoxPrev.parentID == fBoxMove.parentID ) {
+                iPrev = i;
+                found = true;
+                break;
+            }
+
+            // jika parent berikutnya masuk kriteria
+            if( fBoxMove.wrappers.includes( fBoxPrevParentType ) ) {
+                iPrev = i;
+                found = true;
+                break;
+            }
+
+            i--;
+        }        
+
+        if(!found) return;
+
+        if( fBoxMove.wrappers.includes( fBoxPrev.type ) && fBoxPrev.id != fBoxMove.parentID) { // jika container kosong
+            fBoxes[iPrev].querySelector('.rds-field-boxes').append(fBoxes[iMove]);
+        } else {
+            if( fBoxPrev.parentID != fBoxMove.parentID && !['tabs', 'tab', 'container'].includes( fBoxPrev.type )) {
+                fBoxes[iPrev].parentElement.append(fBoxes[iMove]);
+            } else {
+                fBoxes[iPrev].parentElement.insertBefore(fBoxes[iMove], fBoxes[iPrev]);
+            }            
+        }                
+
+    }
+
+    const moveDown = () =>{
+        let iNext = 0;
+        let found = false, i = iMove;
+
+        let fBoxMove, fBoxNext, fBoxNextParentType;
+        fBoxMove = fBoxList.list[fBoxes[iMove].id];
+
+        i++;
+        while( !found && i < fBoxes.length  ){
+            fBoxNext = fBoxList.list[fBoxes[i].id];
+            if(fBoxNext.parentID == 'root'){
+                fBoxNextParentType = 'root';    
+            } else {
+                fBoxNextParentType = fBoxList.list[fBoxNext.parentID].type;
+            }
+            
+
+            // jika parent berikutnya masuk kriteria
+            if( (fBoxNext.parentID !='root' ) && fBoxMove.wrappers.includes( fBoxNextParentType )) {
+                iNext = i;
+                found = true;
+                break;
+            }
+
+            // jika container dan masuk kriteria
+            if( fBoxMove.wrappers.includes( fBoxNext.type )) {
+                iNext = i;
+                found = true;
+                break;
+            }
+
+            // jika bukan container
+            if( !['tabs', 'tab', 'container'].includes( fBoxNext.type ) && fBoxMove.wrappers.includes(fBoxNextParentType)) {
+                iNext = i;
+                found = true;
+                break;
+            }
+
+            i++;
+        }
+        
+        if(!found) return;
+
+        if( fBoxMove.wrappers.includes( fBoxNext.type ) ) { // jika container
+            fBoxes[iNext].querySelector('.rds-field-boxes').prepend(fBoxes[iMove]);
+        } else {            
+            if(fBoxMove.parentID == fBoxNext.parentID) {
+                const afterNext = fBoxes[iNext].nextSibling;
+                if(null === afterNext){
+                    fBoxes[iNext].parentElement.appendChild(fBoxes[iMove]); // taruh paling akhir
+                }else {
+                    afterNext.parentElement.insertBefore(fBoxes[iMove], afterNext)
+                }
+            } else {
+                fBoxes[iNext].parentElement.insertBefore(fBoxes[iMove], fBoxes[iNext]);
+            }
+        }
+    }
+
+    for (let i = 0; i < fBoxes.length; ++i) {
+        if (fBoxes[i].id == elMove.id){ 
+            iMove = i;
+            break; 
+        }
+    }
+
+    if((e.code == "ArrowUp" || e.code == "ArrowLeft") && iMove > 0) {
+        e.preventDefault();
+        moveUp();
+    }
+
+    if( (e.code == "ArrowDown" || e.code == "ArrowRight")  && iMove < fBoxes.length) {
+        e.preventDefault();
+        moveDown();
+    }
+
+    icon.focus();
+}
+
 const clickAddNew = (parentID) => {
     const fBox = new fieldBox();
     fBox.type = "text"; 
@@ -24,7 +185,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',
-            ]         
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         checkbox: {
             classes: '',
@@ -34,7 +196,8 @@ class fieldBox extends elBinder {
                 'description',                
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         color: {
             classes: '',
@@ -45,7 +208,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         date: {
             classes: '',
@@ -55,7 +219,8 @@ class fieldBox extends elBinder {
                 'description',                
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         number: {
             classes: 'small-text',
@@ -66,7 +231,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         email: {
             classes: 'regular-text',   
@@ -77,7 +243,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',
-            ]         
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         password: {
             classes: 'regular-text',
@@ -87,7 +254,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         phone: {
             classes: 'regular-text',
@@ -97,7 +265,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         radio: {
             classes: '',
@@ -108,7 +277,8 @@ class fieldBox extends elBinder {
                 'classes',
                 'options',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         select: {
             classes: '',
@@ -119,7 +289,8 @@ class fieldBox extends elBinder {
                 'classes',
                 'options',
                 'shortcode',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         textarea: {
             classes: 'regular-text',
@@ -130,7 +301,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',              
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         url: {
             classes: 'regular-text',
@@ -140,7 +312,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'shortcode',               
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         media: {
             classes: '',
@@ -150,7 +323,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'shortcode',            
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         editor: {
             classes: '',
@@ -161,7 +335,8 @@ class fieldBox extends elBinder {
                 'default_value',
                 'classes',
                 'shortcode',                
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         container: {
             classes: 'rg-border-t',
@@ -171,7 +346,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'fields',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         tabs: {
             classes: '',
@@ -181,7 +357,8 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'fields',
-            ]
+            ],
+            wrappers: ['root', 'container', 'tab'],
         },
         tab: {
             classes: 'rd-pt-8',
@@ -191,14 +368,14 @@ class fieldBox extends elBinder {
                 'description',
                 'classes',
                 'fields',
-            ]
+            ],
+            wrappers: ['tabs'],
         },        
     };
 
     #typeHandles = {};
     #options = new eventList();
     #attributes = new eventList();
-    #parentID;
     
     #id;
     get id(){
@@ -223,6 +400,10 @@ class fieldBox extends elBinder {
         return attributes;
     }
 
+    get wrappers() {
+        return this.#types[this.type].wrappers;
+    }
+
     get fields(){
         let children = {};
         if(this.#types[this.type].fields.includes('fields')) {
@@ -237,8 +418,6 @@ class fieldBox extends elBinder {
      * @param {fBox} id
      */
     set parentID(id=0) {
-        this.#parentID = id;
-
         let wrapper = null;        
 
         if(id) {
@@ -278,7 +457,8 @@ class fieldBox extends elBinder {
     }
 
     get parentID() {
-        return this.#parentID;
+        const parent = this.node.parentElement.closest('.rds-field-box');
+        return (null === parent) ? 'root' : parent.id;
     }
 
     constructor() {
@@ -625,11 +805,20 @@ class fieldBox extends elBinder {
                 } 
                 checkID();
                 _this.elBinded('name').setAttribute("data-val", _this.name)
-            }
-            
-        });
+            }                        
+        });     
         
-        this.select(".rds-field-box-title .move-handle-icon").addEventListener('keydown', keydownMoveIcon);  
+        this.select(".rds-field-box-title .move-handle-icon").addEventListener('keydown', keydownMoveIconFBox);  
+
+        this.elBinded('move_handle').addEventListener('focus', (e)=>{
+            _this.elBinded('title_wrapper').classList.toggle('rg-ml-8', true);
+            _this.node.querySelector('.rds-field-box-header').classList.toggle('rds-moving', true);
+        });
+
+        this.elBinded('move_handle').addEventListener('blur', (e)=>{
+            _this.elBinded('title_wrapper').classList.toggle('rg-ml-8', false);
+            _this.node.querySelector('.rds-field-box-header').classList.toggle('rds-moving', false);
+        });   
 
         this.#setupAttributesEvent();
         this.#setupOptionsEvent();
@@ -799,9 +988,7 @@ const fBoxInit = () => {
         return fields;    
     }
     
-    $(".rds-field-boxes").sortable({
-        handle:".rds-field-box-title"
-    });
+    $(".rds-field-boxes").sortable(sortFBoxParams);
     
     fBoxList.addEventListener('empty', () => {
         document.querySelector('.rds-fields-header .rds-fields-title').appendChild(document.querySelector('.btn-new-field'));
@@ -817,18 +1004,14 @@ const fBoxInit = () => {
     })
     
     fBoxList.addEventListener('added', (e) => {
-        $(e.detail.item.node.querySelector('.rds-field-boxes')).sortable({
-            handle:".rds-field-box-title",
-            // futures feature
-            // connectWith: ".rds-field-boxes"
-        }); 
+        $(e.detail.item.node.querySelector('.rds-field-boxes')).sortable(sortFBoxParams); 
     
         $(e.detail.item.select('table.rds-field-attributes-table tbody')).sortable({
-            handle:".move-handle"
+            handle: ".move-handle",
         });
     
         $(e.detail.item.select('table.rds-field-options-table tbody')).sortable({
-            handle:".move-handle"
+            handle: ".move-handle",
         });                 
     });
     
