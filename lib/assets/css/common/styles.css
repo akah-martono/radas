@@ -16,6 +16,18 @@
 
 @import url("_width-general.css");
 
+.hide-empty:empty {
+    display: none !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 button.no-button, .button.no-button {
     border: none;
     background-color: unset;
@@ -27,12 +39,4 @@ button.no-button:focus, .button.no-button:focus {
     outline-style: auto;
     outline-width: thin;
     border-radius: 3px;
-}
-
-.hide-empty:empty {
-    display: none !important;
-}
-
-.hide {
-    display: none !important;
 }

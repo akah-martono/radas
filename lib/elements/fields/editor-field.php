@@ -28,8 +28,8 @@ class Editor_Field extends Field{
      */    
     public function __construct($id, $editor=false) {
         $this->type = 'editor';
-
-        // $this->attributes['rows'] = 7;
+        $this->attributes['rows'] = 7;
+        
         parent::__construct($id);
     }
 
@@ -75,10 +75,14 @@ class Editor_Field extends Field{
         }
         $settings = [
             'textarea_name'=>$this->attributes['name'], 
-            'textarea_rows'=>$this->attributes['rows'],
             'media_buttons' => $this->media_buttons,
             'drag_drop_upload' => $this->drag_drop_upload,
         ];
+
+        if(array_key_exists('rows', $this->attributes)){
+            $settings['textarea_rows'] = $this->attributes['rows'];
+        }
+        
         wp_editor($this->get_sanitized_value(), $this->id, $settings);
     }
 }

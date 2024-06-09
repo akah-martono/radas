@@ -17,7 +17,7 @@ const sortFBoxParams = {
         if(!fBox.wrappers.includes(typeReceiver)){
             $(ui.sender).sortable("cancel");  
         }
-    },
+    },    
     over: function(e, ui) {
         const fBoxReceiver = e.target.closest('.rds-field-box');
         const typeReceiver = (null === fBoxReceiver) ? 'root' : fBoxReceiver.getAttribute('data-type');

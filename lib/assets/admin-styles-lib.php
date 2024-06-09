@@ -29,7 +29,7 @@ class Admin_Styles_Lib extends Styles{
 
         'rds-page' => [
             'src'   => self::asset_url . 'page.css',
-            'deps'  => [],
+            'deps'  => ['rds-styles'],
             'ver'   => '0.0.1',
             'media' => 'all'             
         ],    
