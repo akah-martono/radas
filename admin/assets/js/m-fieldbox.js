@@ -61,6 +61,13 @@ const keydownMoveIconFBox = (e) => { // ini nanti dicek
                 break;
             }
 
+            // jika container dan masuk kriteria dan bukan parentnya  
+            if( fBoxMove.wrappers.includes( fBoxPrev.type ) && fBoxPrev.id != fBoxMove.parentID) {
+                iPrev = i;
+                found = true;
+                break;
+            }
+
             // jika parent berikutnya masuk kriteria
             if( fBoxMove.wrappers.includes( fBoxPrevParentType ) ) {
                 iPrev = i;
@@ -91,6 +98,12 @@ const keydownMoveIconFBox = (e) => { // ini nanti dicek
 
         let fBoxMove, fBoxNext, fBoxNextParentType;
         fBoxMove = fBoxList.list[fBoxes[iMove].id];
+
+        // jika terkahir namun bukan di root
+        if( iMove == fBoxes.length - 1 && fBoxMove.parentID != 'root' && fBoxMove.wrappers.includes('root')  ){
+            document.querySelector('.rds-field-boxes').append(fBoxes[iMove]);
+            return;
+        }
 
         i++;
         while( !found && i < fBoxes.length  ){
