@@ -12,7 +12,7 @@ class Admin_Scripts_Rds extends Scripts {
         '_rds-option-page-cpt' => [
             'src'   => self::script_url . 'm-option-page-cpt.js',
             'deps'  => ['jquery', 'rds-datatables', 'jquery-ui-sortable', 'jquery-ui-droppable'],
-            'ver'   => '0.0.1',
+            'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer'],
             'type'  => 'module',
             'rest'  => true,
@@ -20,7 +20,7 @@ class Admin_Scripts_Rds extends Scripts {
         '_rds-option-page' => [
             'src'   => self::script_url . 'm-option-page.js',
             'deps'  => ['jquery'],
-            'ver'   => '0.0.1',
+            'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer'],
             'type'  => 'module',
             'rest'  => true,

@@ -3,8 +3,6 @@ namespace Radas\Admin;
 
 use Radas\Admin\Assets\Admin_Scripts_Rds;
 use Radas\Admin\Assets\Admin_Styles_Rds;
-use Radas\Lib\Assets\Admin_Scripts_Lib;
-use Radas\Lib\Assets\Admin_Styles_Lib;
 use Radas\Lib\HTML_Templates\Field_Box_Template;
 
 class Option_Page_CPT {
@@ -23,7 +21,6 @@ class Option_Page_CPT {
                 position: null
             );            
         });   
-
         
         add_action('admin_init', function(){
             /** no need to check nonce, this condition just to make sure the script run on right page (to prevent bloated)*/
@@ -51,7 +48,7 @@ class Option_Page_CPT {
                 </div>
             </div> 
             <div id="rds-list" style="padding: 24px 32px;">
-                <table id="option-page-list" data-endpoint="<?php echo esc_attr($end_point); ?>" class="display compact" style="width:100%">
+                <table id="option-page-list" data-endpoint="<?php echo esc_attr($end_point); ?>" data-admin-url="<?php echo esc_url(admin_url()); ?>" class="display compact" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID</th>    
@@ -135,7 +132,7 @@ class Option_Page_CPT {
         };
 
         ?>
-        <div id="rds-header" class="flex">                
+        <div id="rds-header" class="rg-flex-wrap">                
             <input type="hidden" id="post_id" name="post_id" class="rds-input" data-handle="post_id">
             <div id="left_header" class="rg-px-8 rd-px-16 rg-basis-full rd-basis-1/2">
                 <table class="rds-table form-table"><tbody>                    

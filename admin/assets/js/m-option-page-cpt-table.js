@@ -58,14 +58,17 @@ $(document).ready(function(){
             },
             {     
                 data: 'id',          
-                width: '100px',
+                width: '128px',
                 className: 'dt-center',
                 orderable: false,
                 render: ( data, type, full, meta ) => {
                     return `
-                    <button title="Edit options page" class="no-button dashicons-before dashicons-edit" onclick="actions.edit(${meta.row})"></button>                    
-                    <button title="Download options page JSON file" class="no-button dashicons-before dashicons-download" onclick="actions.download(${meta.row})"></button>
-                    <button title="Delete options page" class="no-button dashicons-before dashicons-trash" onclick="actions.delete(${meta.row})"></button>
+                    <div class="rds-dtt-actions">
+                        <button title="Edit options page" class="no-button dashicons-before dashicons-edit" onclick="actions.edit(${meta.row})"></button>                    
+                        <button title="Download options page JSON file" class="no-button dashicons-before dashicons-download" onclick="actions.download(${meta.row})"></button>
+                        <button title="Delete options page" class="no-button dashicons-before dashicons-trash" onclick="actions.delete(${meta.row})"></button>
+                        <button title="Open options page" class="no-button dashicons-before dashicons-arrow-up-alt bef-tranform-rotate-45" onclick="actions.open(${meta.row})"></button>
+                    </div>
                     `;
                 }
             },

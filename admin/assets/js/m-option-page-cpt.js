@@ -17,7 +17,15 @@ window.actions = {
     },
     download(row) {
         download(JSON.stringify(table.row(row).data().details), table.row(row).data().slug+'.json', "text/plain");
-    } 
+    }, 
+    open(row) {
+        showSpinner();
+        const adminURL = document.getElementById('option-page-list').getAttribute('data-admin-url');
+        const data = optTable.row(row).data();        
+        const page = (data.type == 'sub_menu' && data.menu.includes(".php")) ? data.menu : 'admin.php';
+        
+        window.open(`${adminURL}${page}?page=${data.slug}`, '_self');
+    }     
 }
 
 const dialogRemove = (row)=>{

@@ -6,9 +6,9 @@
 @import url("_margin-mobile.css");
 @import url("_margin-desktop.css");
 
-@import url("_flex-basis-general.css");
-@import url("_flex-basis-mobile.css");
-@import url("_flex-basis-desktop.css");
+@import url("_flex-general.css");
+@import url("_flex-mobile.css");
+@import url("_flex-desktop.css");
 
 @import url("_border-general.css");
 @import url("_border-mobile.css");

@@ -36,11 +36,11 @@
     position: relative;
     background-color: white;
     padding: 8px 20px;
-    border-bottom: thin solid rgb(195, 196, 199, 0.75);    
+    border-bottom: thin solid rgb(195, 196, 199, 0.75);
     align-items: center;
     h1{
         font-size: x-large;
-        margin: .5em 0;    
+        margin: .5em 0;
     }
 
     button {
@@ -49,9 +49,7 @@
         min-height: 32px;        
     }    
 }
-#rds-header {
-    display: flex;
-}
+
 #rds-page-footer {
     padding: 20px;
     border-top: thin solid rgb(195, 196, 199, 0.75);
@@ -304,3 +302,27 @@ td.move-handle > span.dashicons.dashicons-trash {
 .rds-moving {
     background-color: #77a4ed;
 }
+
+.bef-tranform-rotate-45:before {
+    transform: rotate(45deg);
+}
+
+.rds-dtt-actions {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 128px;
+}
+
+.rds-dtt-actions > * {
+    flex-basis: calc(100% / 4);
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.rds-dtt-actions > *:hover {
+    background-color: #d5d5d5;
+    border-radius: 5px;
+}
+

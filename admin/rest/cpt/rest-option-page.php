@@ -263,7 +263,8 @@ class REST_Option_Page {
      * @param WP_REST_Request $request 
      * @return mixed 
      */
-    protected function post(\WP_REST_Request $request){              
+    protected function post(\WP_REST_Request $request){    
+        $u = menu_page_url('');
         $data = $request->get_json_params();
 
         $exist = get_posts(array(

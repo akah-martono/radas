@@ -12,13 +12,13 @@ class Admin_Styles_Rds extends Styles {
         '_rds-styles' => [
             'src'   => self::asset_url . 'style.css',
             'deps'  => [],
-            'ver'   => '0.0.0',
+            'ver'   => '0.0.0.b',
             'media' => 'all'             
         ],
         '_rds-fieldbox' => [
             'src'   => self::asset_url . 'fieldbox.css',
             'deps'  => ['rds-datatables', 'rds-page'],
-            'ver'   => '0.0.0',
+            'ver'   => '0.0.0.b',
             'media' => 'all'             
         ],        
     ];

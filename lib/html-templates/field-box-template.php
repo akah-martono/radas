@@ -60,7 +60,7 @@ class Field_Box_Template {
                         </div>
                     </div>
                     <div class="rds-field-box-inside">
-                        <div class="rg-py-24 rg-border rg-border-t-0" style="display: flex;">
+                        <div class="rg-flex-wrap rg-py-24 rg-border rg-border-t-0">
                             <div class="rg-basis-full rd-basis-1/2 rg-px-16 rd-px-32">
                                 <table class="rds-table form-table"><tbody>
                                     <tr class="rds-field field_type">
@@ -86,7 +86,7 @@ class Field_Box_Template {
                                                     <option value="media">Media (Image)</option>
                                                     <option value="editor">Editor</option>
                                                 </optgroup>
-                                                <optgroup label="Wrapper">
+                                                <optgroup label="Group">
                                                     <option value="container">Container</option>
                                                     <option value="tabs">Tabs</option>
                                                     <option value="tab" disabled>Tab</option>

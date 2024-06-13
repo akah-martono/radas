@@ -276,6 +276,7 @@ class fieldBox extends elBinder {
                 'label',
                 'name',
                 'description',
+                'default_value',
                 'classes',
                 'shortcode',
             ],

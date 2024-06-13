@@ -22,19 +22,19 @@ class Admin_Scripts_Lib extends Scripts{
         'rds-media-box' => [
             'src'   => self::script_url . 'media-box.js',
             'deps'  => ['jquery'],
-            'ver'   => '0.0.1',
+            'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer']           
         ],  
         'rds-tabs' => [
             'src'   => self::script_url . 'tabs.js',
             'deps'  => ['jquery'],
-            'ver'   => '0.0.1',
+            'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer']           
         ], 
         'rds-page' => [
             'src'   => self::script_url . 'page.js',
             'deps'  => ['jquery'],
-            'ver'   => '0.0.1',
+            'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer']           
         ],       
     ];

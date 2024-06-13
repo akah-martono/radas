@@ -1,5 +1,7 @@
 <?php
 
+use Radas\Lib\Helper\Util;
+
 function rds_debug(){        
     // add_action( 'wp_enqueue_scripts', function(){
 	// 	wp_register_script_module(
@@ -14,5 +16,4 @@ function rds_debug(){
     // });
     // echo 'lewat sini';
     // die();
-    // add_action('after_setup_theme', 'rds_theme_setup', 99);
 }
