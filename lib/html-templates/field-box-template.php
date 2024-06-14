@@ -179,7 +179,7 @@ class Field_Box_Template {
                         </div>
                     </div>
                 </div>
-                <div class="rds-group-field type-condition rg-p-16 rd-p-24 rg-pr-0 rd-pr-0 rd-pb-8 rg-pb-0" data-type-handle="fields">
+                <div class="rds-group-field type-condition rg-p-16 rg-pr-0 rd-pr-0 rd-pb-8 rg-pb-0" data-type-handle="fields">
                     <div class="rds-field-boxes"></div>      
                     <div class="rds-btn-add-wrapper rg-pt-8">
                         <button class="btn-group-new-field button button-secondary dashicons-before dashicons-plus" data-fbox-handle="btn_add_field"> New Field</button>
