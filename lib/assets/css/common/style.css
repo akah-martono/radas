@@ -1,10 +1,6 @@
-@import url("_padding-general.css");
-@import url("_padding-mobile.css");
-@import url("_padding-desktop.css");
-
-@import url("_margin-general.css");
-@import url("_margin-mobile.css");
-@import url("_margin-desktop.css");
+@import url("_spacing-general.css");
+@import url("_spacing-mobile.css");
+@import url("_spacing-desktop.css");
 
 @import url("_flex-general.css");
 @import url("_flex-mobile.css");

@@ -20,8 +20,8 @@ class Admin_Styles_Lib extends Styles{
             'media' => 'all'             
         ],           
 
-        'rds-styles' => [
-            'src'   => self::asset_url . 'common/styles.css',
+        'rds-style' => [
+            'src'   => self::asset_url . 'common/style.css',
             'deps'  => [],
             'ver'   => '0.0.1.b',
             'media' => 'all'             
@@ -29,7 +29,7 @@ class Admin_Styles_Lib extends Styles{
 
         'rds-page' => [
             'src'   => self::asset_url . 'page.css',
-            'deps'  => ['rds-styles'],
+            'deps'  => ['rds-style'],
             'ver'   => '0.0.1.b',
             'media' => 'all'             
         ],    
