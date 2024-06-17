@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Radas Options Page
- * Plugin URI: 		  https://www.radas.id
+ * Plugin URI: 		  https://wpradas.com
  * Description:       Create WordPress options page easily
  * Version:           0.0.1
  * Requires at least: 6.5

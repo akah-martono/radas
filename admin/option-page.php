@@ -47,7 +47,7 @@ class Option_Page {
                     menu_slug: $this->page['slug'],
                     callback: fn()=> $this->render(),
                     icon_url: $this->page['icon'],
-                    position: $this->page['position'] ?? null
+                    position: $this->page['position'] ? $this->page['position'] : null
                 );    
             }, 10);       
         } else {
@@ -60,7 +60,7 @@ class Option_Page {
                     capability: $this->page['capability'],
                     menu_slug: $this->page['slug'],
                     callback: fn() => $this->render(),
-                    position: $this->page['position'] ?? null
+                    position: $this->page['position'] ? $this->page['position'] : null
                 );            
             }, 99);    
         }

@@ -264,7 +264,6 @@ class REST_Option_Page {
      * @return mixed 
      */
     protected function post(\WP_REST_Request $request){    
-        $u = menu_page_url('');
         $data = $request->get_json_params();
 
         $exist = get_posts(array(
