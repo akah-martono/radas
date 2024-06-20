@@ -42,7 +42,7 @@ const fBoxMoveUp = (fBox) =>{
         }
     }    
 
-    if(iMove <= 1) return;
+    if(iMove <= 0) return;
     
     let iPrev = 0;
     let found = false, i = iMove;    
