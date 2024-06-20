@@ -18,8 +18,8 @@ class Admin_Styles_Lib extends Styles{
             'deps'  => [],
             'ver'   => '0.0.1',
             'media' => 'all'             
-        ],           
-
+        ],  
+        
         'rds-style' => [
             'src'   => self::asset_url . 'common/style.css',
             'deps'  => [],

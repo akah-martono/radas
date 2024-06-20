@@ -34,9 +34,15 @@ class Admin_Scripts_Lib extends Scripts{
         'rds-page' => [
             'src'   => self::script_url . 'page.js',
             'deps'  => ['jquery'],
+            'ver'   => '0.0.1.c',
+            'args'  => ['strategy'=>'defer']           
+        ],     
+        'jquery-ui-touch-punch' => [
+            'src'   => self::script_url . 'jquery.ui.touch-punch.js',
+            'deps'  => ['jquery', 'jquery-ui-sortable', 'jquery-ui-droppable'],
             'ver'   => '0.0.1.b',
             'args'  => ['strategy'=>'defer']           
-        ],       
+        ],     
     ];
 
     protected static $modules = [  

@@ -1,4 +1,4 @@
-import { fieldBox, fBoxList, fBoxInit } from "./m-fieldbox.js";
+import { fieldBox, fBoxList, fBoxInit, createFBox } from "./m-fieldbox.js";
 import { iconBox } from  "../../../lib/assets/js/m-iconbox.js";
 import { setErrorMessage } from "../../../lib/assets/js/m-utils.js";
 import { elBinder, showSpinner, popupAlert, dialogBox, getFormValue} from "../../../lib/assets/js/m-general.js";
@@ -261,42 +261,19 @@ class optPage extends elBinder {
             this.page_icon = data.icon;
             this.position = data.position;
         
-            data.fields[0].fields.forEach((field)=>{
-                this.#createFBox(field, 0);
+            data.fields[0].fields.forEach((field)=>{                
+                createFBox(field, 0, {
+                    after: (fBox)=>{
+                        if(this.post_id) {
+                            this.#setShortcode(fBox);
+                        }
+                    }
+                })
             })
         } catch (e) {
             console.error(e.message);
         }        
     }
-
-    #createFBox (field, parentID) {
-        const fBox = new fieldBox();
-
-        // ini harus sebelum set options dan attributes, karena harus wrapped dulu
-        fBox.parentID = parentID;
-
-        // ini harus sebelum set fBox.type supaya nggak buat 2 option kosong
-        field.options.forEach((option)=>{
-            fBox.addOption(option);
-        })
-
-        field.attributes.forEach((attribute)=>{
-            fBox.addAttribute(attribute);
-        })        
-
-        fBox.type = field.type;    
-        fBox.name = field.name;
-        fBox.label = field.label;
-        fBox.description = field.description;
-        fBox.default_value = field.default_value;
-        fBox.classes = field.classes;
-
-        field.fields.forEach((field)=>{
-            this.#createFBox(field, fBox.id);
-        })
-
-        this.#setShortcode(fBox);        
-    } 
 
     #setShortcode(fBox) {        
         if(!fBox.elBinded('btn_shortcode').disabled) return;

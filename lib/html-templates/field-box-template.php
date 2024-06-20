@@ -43,24 +43,31 @@ class Field_Box_Template {
         <template id="fieldbox-template">
             <div id="[fbid]" class="rds-field-box">
                 <div class="el-wrapper">
-                    <div class="rds-field-box-header rg-border">
-                        <div class="rds-field-box-title">
-                            <div class="move-handle-wrapper">
-                                <button title="Move" class="no-button move-handle-icon dashicons dashicons-move" data-move-el=".rds-field-box" tabindex="0" data-fbox-handle="move_handle"></button>
-                            </div>
-                            <div class="rds-field-box-title-text" data-fbox-handle="title_wrapper" data-clickable>
-                            <h2 data-fbox-handle="fbox_title"></h2>
-                            <span class="rds-field-attr">&nbsp;(<span class="field-type" data-fbox-handle="fbox_type"></span>)<span class="field-mandatory"></span></span>
-                            </div>
+                    <div class="rds-field-box-header rg-border fbox-move-handle">
+                        <div class="move-handle-wrapper fbox" style="min-width: 12px;">
+                                <button title="Move" class="rm-hide btn-fbox-move no-button move-handle-icon dashicons dashicons-move" data-move-el=".rds-field-box" tabindex="0" data-fbox-handle="move_handle"></button>
+                                <button class="rd-hide btn-fbox-move-up no-button dashicons dashicons-arrow-up-alt2" data-fbox-handle="btn_move_up"></button>
+                                <button class="rd-hide btn-fbox-move-down no-button dashicons dashicons-arrow-down-alt2" data-fbox-handle="btn_move_down"></button>                                
                         </div>
-                        <div class="rds-field-box-icon-wrapper">
-                            <button class="no-button remove-field dashicons dashicons-trash" title="Remove field" data-fbox-handle="btn_remove_field"></button>
-                            <button class="no-button field-shortcode type-condition dashicons dashicons-shortcode pointer" title="Show shortcodes" data-fbox-handle="btn_shortcode"  data-type-handle="shortcode" disabled></button>
-                            <button class="no-button btn-expanse-collapse dashicons" data-fbox-handle="btn_expanse_collapse"></button>
+                        <div class="fbox-header-flex-wrapper">
+                            <div class="rds-field-box-title">
+                                <div class="rds-field-box-title-text rm-pt-4" data-fbox-handle="title_wrapper" data-clickable>
+                                    <h2 data-fbox-handle="fbox_title"></h2>
+                                    <span class="rds-field-attr">&nbsp;(<span class="field-type" data-fbox-handle="fbox_type"></span>)<span class="field-mandatory"></span></span>
+                                </div>
+                            </div>
+                            <div class="rds-field-box-icon-wrapper">
+                                <button class="no-button remove-field dashicons dashicons-trash" title="Remove field" data-fbox-handle="btn_remove_field"></button>
+                                <button class="no-button duplicate-field type-condition dashicons dashicons-admin-page pointer" title="Duplicate Field" data-fbox-handle="btn_duplicate"></button>
+                                <button class="no-button field-shortcode type-condition dashicons dashicons-shortcode pointer" title="Show shortcodes" data-fbox-handle="btn_shortcode"  data-type-handle="shortcode" disabled></button>
+                                <!-- <button class="no-button dashicons dashicons-arrow-up-alt2" data-fbox-handle="btn_move_up"></button>
+                                <button class="no-button dashicons dashicons-arrow-down-alt2" data-fbox-handle="btn_move_down"></button> -->
+                                <button class="no-button btn-expanse-collapse dashicons" data-fbox-handle="btn_expanse_collapse"></button>
+                            </div>
                         </div>
                     </div>
                     <div class="rds-field-box-inside">
-                        <div class="rg-flex-wrap rg-py-24 rg-border rg-border-t-0">
+                        <div class="rg-flex-wrap rg-py-8 rd-py-24 rg-border rg-border-t-0">
                             <div class="rg-basis-full rd-basis-1/2 rg-px-16 rd-px-32">
                                 <table class="rds-table form-table"><tbody>
                                     <tr class="rds-field field_type">

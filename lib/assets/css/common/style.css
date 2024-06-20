@@ -36,3 +36,15 @@ button.no-button:focus, .button.no-button:focus {
     outline-width: thin;
     border-radius: 3px;
 }
+
+@media only screen and (max-width: 782px) {
+    .rm-hide {
+        display: none !important;
+    }    
+}
+
+@media only screen and (min-width: 783px) {
+    .rd-hide {
+        display: none !important;
+    }
+}
