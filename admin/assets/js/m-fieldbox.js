@@ -181,7 +181,7 @@ const keydownMoveIconFBox = (e) => {
     const fBox = fBoxList.get(icon.closest('.rds-field-box').id)
     
     if((e.code == "ArrowUp" || e.code == "ArrowLeft") ) {
-        e.preventDefault();
+        e.preventDefault();             
         fBoxMoveUp(fBox);
     }
 
@@ -803,13 +803,15 @@ class fieldBox extends elBinder {
             const handle = e.detail.handle;
             
             if(handle == 'btn_move_up') {
-                fBoxMoveUp(_this);
+                fBoxMoveUp(_this);                                
                 _this.node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                animate.fadeIn(_this.node,{delay:200})
             }
 
             if(handle == 'btn_move_down') {
-                fBoxMoveDown(_this);
+                fBoxMoveDown(_this);                
                 _this.node.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                animate.fadeIn(_this.node,{delay:200})
             }
 
             if(handle == 'btn_duplicate') {
