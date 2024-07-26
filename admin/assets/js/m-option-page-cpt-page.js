@@ -1,7 +1,8 @@
-import { fieldBox, fBoxList, fBoxInit, createFBox } from "./m-fieldbox.js";
-import { iconBox } from  "../../../lib/assets/js/m-iconbox.js";
+// import { fieldBox, fBoxList, fBoxInit, createFBox } from "./m-fieldbox.js";
+import { fBoxList, createFBox } from "../../../lib/assets/js/fieldbox/m-fieldbox.js";
+import { iconBox } from  "../../../lib/assets/js/iconbox/m-iconbox.js";
 import { setErrorMessage } from "../../../lib/assets/js/m-utils.js";
-import { elBinder, showSpinner, popupAlert, dialogBox, getFormValue} from "../../../lib/assets/js/m-general.js";
+import { elBinder, showSpinner, popupAlert, dialogBox, getFormValue} from "../../../lib/assets/js/general/m-general.js";
 import { adminFlashNotice } from "../../../lib/assets/js/m-admin.js";
 
 window.fBoxList = fBoxList;
@@ -138,7 +139,7 @@ class optPage extends elBinder {
 
         this.#iconBoxInit();    
 
-        fBoxInit();
+        // fBoxInit();
     
         // Listen for input events on the form
         this.#form.addEventListener('input', this.#onInput);   

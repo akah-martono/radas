@@ -17,19 +17,7 @@ use Radas\Lib\Classes\Interfaces\Element_Interface;
  * @property-read array $classes
  * @property-read array $tabs
 */
-class Tabs extends Wrapper{  
-
-    /**
-     * @param Element $element 
-     * @return $this 
-     */
-    public function add_element(Element $element){
-        // if($element instanceof Tab){
-            $this->elements[$element->id] = $element;
-        // }        
-        return $this;
-    }
-    
+class Tabs extends Wrapper{      
     /**
      * @inheritdoc 
      */

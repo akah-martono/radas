@@ -12,39 +12,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action('rds_run', function () {
+add_action('radas_run', function () {
     /** run only once */
-    if( did_action('rds_run') > 1 ) return;
+    if( did_action('radas_run') > 1 ) return;
 
     // require_once("debug.php");
-    // rds_debug();
+    // radas_debug();
     
-    add_action('init', 'rds_register_rest');
-    add_action('init', 'rds_register_scripts');
-    add_action('init', 'rds_register_styles');
-    add_action('init', 'rds_register_post_type');
-    add_action('init', 'rds_register_admin_page');
-    add_action('init', 'rds_load_options_pages');
+    add_action('init', 'radas_register_rest');
+    add_action('init', 'radas_register_scripts');
+    add_action('init', 'radas_register_styles');
+    add_action('init', 'radas_register_post_type');
+    add_action('init', 'radas_register_admin_page');
+    add_action('init', 'radas_load_options_pages');
 });
 
 /** @return void  */
-function rds_register_rest(){
+function radas_register_rest(){
     /** register REST for option page */
     (new REST_Option_Page());
 }
 
 /** @return void  */
-function rds_register_scripts(){
+function radas_register_scripts(){
     Admin_Scripts_Rds::register();
 }
 
 /** @return void  */
-function rds_register_styles(){
+function radas_register_styles(){
     Admin_Styles_Rds::register();
 }
 
 /** @return void  */
-function rds_register_post_type(){    
+function radas_register_post_type(){    
    
     // https://developer.wordpress.org/reference/functions/register_post_type/
     $args = array(
@@ -54,20 +54,20 @@ function rds_register_post_type(){
         'has_archive' => false,
         'rewrite'     => false, 
     );
-    register_post_type( 'rds_option_page', $args);    
+    register_post_type( 'radas_option_page', $args);    
     
 }
 
 /** @return void  */
-function rds_register_admin_page(){
+function radas_register_admin_page(){
     (new Option_Page_CPT());
 }
 
 /** @return void  */
-function rds_load_options_pages() {    
+function radas_load_options_pages() {    
     // The Query.
     $the_query = new \WP_Query( [
-        'post_type' => 'rds_option_page', 
+        'post_type' => 'radas_option_page', 
         'nopaging' => true
     ] );        
 

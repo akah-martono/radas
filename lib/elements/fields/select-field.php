@@ -69,7 +69,7 @@ class Select_Field extends Field{
         // $required = array_key_exists('required', $this->attributes) || thi;
 		?>
         <select <?php $this->render_attributes(); ?>>
-            <option <?php echo array_key_exists('required', $this->attributes) ? 'disabled'  : '' ?> value><?php echo esc_html(__('Select...', RADAS_DOMAIN)); ?></option>
+            <option <?php echo esc_attr( array_key_exists('required', $this->attributes) ? 'disabled'  : '' ); ?> value><?php echo esc_html(__('Select...', 'radas')); ?></option>
             <?php 
 
             if(is_callable($this->options)){
@@ -79,7 +79,7 @@ class Select_Field extends Field{
             }
             
             foreach($options as $key => $label){
-                echo '<option value="' . esc_attr($key) .'"' . selected( $key, $this->get_sanitized_value(), false ) . '>' . esc_html($label) .'</option>';
+                echo '<option value="' . esc_attr($key) .'"' . esc_attr( selected( $key, $this->get_sanitized_value(), false ) ) . '>' . esc_html($label) .'</option>';
             }
             ?>
         </select>

@@ -97,7 +97,7 @@ class Option_Page {
 
     protected function form_content(){
         if(!$this->elements instanceof Element){
-            echo __('Something wrong with your data', RADAS_DOMAIN);
+            echo esc_html__('Something wrong with your data', 'radas');
             return;
         }
 
@@ -138,7 +138,7 @@ class Option_Page {
         if(!$method == 'POST'){
             return Util::rest_response(
                 code: 'not_supported', 
-                message: __('Method not supported'),
+                message: __('Method not supported', 'radas'),
                 data: [],
                 status: 405
             );            
@@ -167,7 +167,7 @@ class Option_Page {
 
         return Util::rest_response(
             code: 'success', 
-            message: __('Your data has been successfully updated'),
+            message: __('Your data has been successfully updated', 'radas'),
             data: get_option($this->page['slug'], null),
             status: 200
         );               

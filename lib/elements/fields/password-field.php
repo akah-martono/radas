@@ -39,7 +39,7 @@ class Password_Field extends Field{
      */ 
     public function render_input() {
 		?>
-        <input type="password" value="<?php echo $this->get_sanitized_value(); ?>" <?php $this->render_attributes(); ?>>
+        <input type="password" value="<?php echo esc_attr( $this->get_sanitized_value() ); ?>" <?php $this->render_attributes(); ?>>
         <?php           
     }
     

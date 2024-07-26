@@ -29,8 +29,13 @@ abstract class Wrapper extends Element {
      * @param Element $element 
      * @return $this 
      */
-    public function add_element(Element $element){
-        $this->elements[$element->id] = $element;
+    public function add_element(...$element){
+        foreach($element as $el){
+            if($el instanceof Element) {
+                $this->elements[$el->id] = $el;    
+            }            
+        }
+        // $this->elements[$element->id] = $element;
         return $this;
     }
 

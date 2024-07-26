@@ -16,7 +16,7 @@ class Admin_Styles_Rds extends Styles {
             'media' => 'all'             
         ],
         '_rds-fieldbox' => [
-            'src'   => self::asset_url . 'fieldbox.css',
+            'src'   => self::asset_url . 'option-page-cpt.css',
             'deps'  => ['rds-datatables', 'rds-page'],
             'ver'   => '0.0.0.c',
             'media' => 'all'             

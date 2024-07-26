@@ -83,7 +83,8 @@ class Util {
 
     /** @return string  */
     public static function get_current_url(){
-        return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        return esc_url($url);
     }
 
     /**
@@ -282,15 +283,6 @@ class Util {
         }
 
         return null;
-    }
-
-    /**
-     * @param mixed $place 
-     * @return string 
-     */
-    public static function google_map_url($place){
-        $url = 'https://www.google.com/maps/search/?api=1&query='. urlencode($place);
-        return esc_url_raw($url);
     }
 
     /**
@@ -493,7 +485,7 @@ class Util {
         if (!is_front_page()) {
             $home_url = get_option('home');            
             if (!$home_text){
-                $home_text = __('Home');
+                $home_text = __('Home', 'radas');
             }
 
             $breadcrumbs[] = [
@@ -551,12 +543,12 @@ class Util {
                     ];                      
                 } elseif ( is_month() ) {
                     $breadcrumbs[] = [
-                        'title' => get_the_date( _x( 'F Y', 'monthly archives date format', 'text_domain' ) ),
+                        'title' => get_the_date( _x( 'F Y', 'monthly archives date format', 'radas' ) ),
                         'url' => self::get_current_url()
                     ];                      
                 } elseif ( is_year() ) {
                     $breadcrumbs[] = [
-                        'title' => get_the_date( _x( 'Y', 'yearly archives date format', 'text_domain' ) ),
+                        'title' => get_the_date( _x( 'Y', 'yearly archives date format', 'radas' ) ),
                         'url' => self::get_current_url()
                     ];                          
                 } else {

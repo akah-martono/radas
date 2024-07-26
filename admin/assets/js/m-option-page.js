@@ -1,4 +1,4 @@
-import { showSpinner, popupAlert, getFormValue} from "../../../lib/assets/js/m-general.js";
+import { showSpinner, popupAlert, getFormValue} from "../../../lib/assets/js/general/m-general.js";
 import { adminFlashNotice } from "../../../lib/assets/js/m-admin.js";
 import { setErrorMessage } from "../../../lib/assets/js/m-utils.js";
 

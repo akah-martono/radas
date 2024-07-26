@@ -57,7 +57,7 @@ class Admin_Scripts_Lib extends Scripts{
             'ver'   => '0.0.1',
         ],       
         '@radas/iconbox' => [
-            'src'   => self::script_url . 'm-iconbox.js',
+            'src'   => self::script_url . 'iconbox/m-iconbox.js',
             'deps'  => ['@radas/general'],
             'ver'   => '0.0.1',
         ],       

@@ -56,7 +56,7 @@ class TextArea_Field extends Field{
      */ 
     public function render_input() {
         ?>
-        <textarea <?php $this->render_attributes(); ?>><?php echo $this->get_sanitized_value() ?></textarea>
+        <textarea <?php $this->render_attributes(); ?>><?php echo esc_attr($this->get_sanitized_value()) ?></textarea>
         <?php    
     }
 }

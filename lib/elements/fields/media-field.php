@@ -75,11 +75,11 @@ class Media_Field extends Field{
         Admin_Scripts_Lib::enqueue('rds-media-box');
 		?>
         <div class="rds-media-input">
-            <div class="media-preview"><?php echo ($this->get_sanitized_value() ? wp_get_attachment_image($this->get_sanitized_value(), [ 129, 129 ]) : '');  ?></div>
-            <input type="hidden" class="media-id" value="<?php echo $this->get_sanitized_value(); ?>" <?php $this->render_attributes(); ?>>
+            <div class="media-preview"><?php echo wp_kses_post($this->get_sanitized_value() ? wp_get_attachment_image($this->get_sanitized_value(), [ 129, 129 ]) : '');  ?></div>
+            <input type="hidden" class="media-id" value="<?php echo esc_attr( $this->get_sanitized_value() ); ?>" <?php $this->render_attributes(); ?>>
             <div style="display: flex; align-items: center; flex-wrap: nowrap; column-gap: 8px; margin-top: 4px;">
                 <input type="button" class="button upload-media-button" value="Upload">
-                <input type="button" class="button no-button remove-media-button<?php echo ($this->get_sanitized_value() ? '' : ' hide'); ?>" value="Remove" style="color:#a00;">
+                <input type="button" class="button no-button remove-media-button<?php echo wp_kses_post($this->get_sanitized_value() ? '' : ' hide'); ?>" value="Remove" style="color:#a00;">
             </div>
         </div>
         <?php

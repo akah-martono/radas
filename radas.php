@@ -26,6 +26,7 @@ define( 'RADAS_URL', plugin_dir_url( RADAS_PLUGIN_FILE ) );
 define( 'RADAS_DOMAIN', 'radas' );
 define( 'RADAS_PHONE_FORMAT', '3|0xxx-xxxx-xxxxx' );
 define( 'RADAS_REST_NAMESPACE', "radas/v1"  );
+define( 'RADAS_DEV_MODE', true  );
 
 // include
 require_once RADAS_PATH . 'inc/autoloader.php';
@@ -33,11 +34,11 @@ require_once RADAS_PATH . 'inc/plugin.php';
 require_once RADAS_PATH . 'lib/plugin.php';
 
 // action
-add_action('plugin_loaded', 'rds_load');
+add_action('plugin_loaded', 'radas_load');
 
 /** @return void  */
-function rds_load(){    
-    do_action('rds_lib_run'); 
-    do_action('rds_run'); 
+function radas_load(){    
+    do_action('radas_lib_run'); 
+    do_action('radas_run'); 
 }
 

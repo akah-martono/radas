@@ -25,7 +25,7 @@ class File_Field extends Field{
      */ 
     public function render_input() {
 		?>
-        <input type="url" id="<?php echo esc_attr($this->id); ?>" value="<?php echo $this->get_sanitized_value(); ?>">
+        <input type="url" id="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr( $this->get_sanitized_value() ); ?>">
         <input type="file" id="<?php echo esc_attr($this->attributes['name']); ?>"  name="<?php echo esc_attr($this->attributes['name']); ?>">
         <?php           
     }

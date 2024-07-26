@@ -13,7 +13,7 @@ use WP_REST_Response;
 */
 class REST_Option_Page {
     protected static $route="/cpt/option-pages";
-    protected static $post_type = 'rds_option_page';
+    protected static $post_type = 'radas_option_page';
 
     /** @return void  */
     public function __construct() {
@@ -79,9 +79,9 @@ class REST_Option_Page {
         $id = $request->get_param('id');
         if(!$id) {
             return Util::rest_response(
-                code: 'rds_not_found', 
+                code: 'radas_not_found', 
                 /* translators: %s: the post ID to be deleted */
-                message: sprintf(__('Radas options page for id %s not found'), $id),
+                message: sprintf(__('Radas options page for id %s not found', 'radas'), esc_html( $id ) ),
                 data: [
                     'id' => $id,     
                 ],
@@ -93,7 +93,7 @@ class REST_Option_Page {
         if(get_option($page['slug']) && !delete_option($page['slug'])){
             return Util::rest_response(
                 code: 'failed', 
-                message: __('Something wrong, option cannot be deleted'),
+                message: __('Something wrong, option cannot be deleted', 'radas'),
                 data: [
                     'id' => $id
                 ] ,
@@ -104,7 +104,7 @@ class REST_Option_Page {
         if(wp_delete_post($id, true)) {
             return Util::rest_response(
                 code: 'success', 
-                message: __('Your data has been successfully deleted'),
+                message: __('Your data has been successfully deleted', 'radas'),
                 data: [
                     'id' => $id, 
                 ] ,
@@ -138,7 +138,7 @@ class REST_Option_Page {
 
         if(!$data) {
             return Util::rest_response(
-                code: 'rds_not_found', 
+                code: 'radas_not_found', 
                 message: "Radas options page for id {$id} not found",
                 data: [
                     'id' => $id,     
@@ -198,7 +198,7 @@ class REST_Option_Page {
         return Util::rest_response(
             code: 'success', 
             /* translators: %s: the number of rows found */
-            message: sprintf(__('Found %s rows'), $the_query->post_count),
+            message: sprintf(__('Found %s rows','radas'), esc_html($the_query->post_count)),
             data: $posts ,
             status: 200
         );
@@ -217,7 +217,7 @@ class REST_Option_Page {
         if($post->post_name !== $data['slug']) {
             return Util::rest_response(
                 code: 'failed', 
-                message: __('The slug must not be changed'),
+                message: __('The slug must not be changed', 'radas'),
                 data: [
                     'id' => $id
                 ],
@@ -251,7 +251,7 @@ class REST_Option_Page {
 
         return Util::rest_response(
             code: 'success', 
-            message: __('Your data has been successfully updated'),
+            message: __('Your data has been successfully updated','radas'),
             data: [
                 'id' => $id
             ] ,
@@ -274,7 +274,7 @@ class REST_Option_Page {
         if($exist){
             return Util::rest_response(
                 code: 'failed', 
-                message: __('This slug is not available, please change the slug'),
+                message: __('This slug is not available, please change the slug', 'radas'),
                 data: [] ,
                 status: 409
             );
@@ -293,7 +293,7 @@ class REST_Option_Page {
         if(get_option($data['slug'])){
             return Util::rest_response(
                 code: 'failed', 
-                message: __('This slug has already been used by another option, please change the slug'),
+                message: __('This slug has already been used by another option, please change the slug', 'radas'),
                 data: [] ,
                 status: 409
             );
@@ -324,7 +324,7 @@ class REST_Option_Page {
 
         return Util::rest_response(
             code: 'success', 
-            message: __('Your data has been successfully created'),
+            message: __('Your data has been successfully created', 'radas'),
             data: [
                 'id' => $new_id,
                 'detail' => $data

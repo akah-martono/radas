@@ -2,7 +2,7 @@
 
 use Radas\Lib\Helper\Util;
 
-function rds_debug(){        
+function radas_debug(){        
     // add_action( 'wp_enqueue_scripts', function(){
 	// 	wp_register_script_module(
 	// 		'@radas/general',

@@ -192,7 +192,7 @@ class Option_Page_CPT {
                         <td>
                             <select id="parent_menu" name="parent_menu" class="rds-input" data-handle="parent_menu">                                
                                 <?php 
-                                printf( '<option value="">%s</option>', esc_html(__('Select...', RADAS_DOMAIN)));
+                                printf( '<option value="">%s</option>', esc_html(__('Select...', 'radas')));
                                 $menu_options(); 
                                 ?>
                             </select>
@@ -228,7 +228,10 @@ class Option_Page_CPT {
                 </tbody></table>
             </div>
         </div>
-        <div id="rds-fields-box-wrapper" class="rg-px-8 rd-px-16">
+        <div class="rg-px-8 rd-px-16 rg-py-24">
+            <div id="rds-fields-box-wrapper"></div>
+        </div>
+        <!-- <div id="rds-fields-box-wrapper" class="rg-px-8 rd-px-16">
             <div class="rds-fields-header rm-p-8">
                 <div class="rds-fields-title">
                     <h3>Fields</h3>
@@ -243,7 +246,7 @@ class Option_Page_CPT {
                 <div class="rds-field-boxes"></div>
                 <div class="rds-btn-add-wrapper rds-btn-add-footer rg-pt-8"></div>
             </div>
-        </div>           
+        </div>            -->
         <?php        
     }
 }

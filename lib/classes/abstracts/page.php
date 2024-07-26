@@ -18,7 +18,10 @@ abstract class Page {
         Admin_Styles_Lib::enqueue('rds-page');
         // Libs_Scripts::enqueue('rds-page');
 
-        echo "<div id=\"rds-page\" {$this->render_attributes()}>";
+        // echo "<div id=\"rds-page\" {$this->render_attributes()}>";
+        echo "<div id=\"rds-page\"";
+        $this->render_attributes();
+        echo ">";
         ?>        
         <div id="rds-page-title">
             <h1><?php echo esc_attr($this->label); ?></h1>

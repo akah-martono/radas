@@ -42,9 +42,9 @@ abstract class Scripts {
                 }                
 
                 if(array_key_exists('type', $script)){
-                    $rds_handle = $handle; $type = $script['type'];
-                    add_filter( 'script_loader_tag', function($tag, $handle) use ($rds_handle, $type){
-                        if ($handle === $rds_handle){
+                    $radas_handle = $handle; $type = $script['type'];
+                    add_filter( 'script_loader_tag', function($tag, $handle) use ($radas_handle, $type){
+                        if ($handle === $radas_handle){
                             $tag = str_replace( '<script ', '<script type="' . esc_attr($type) . '" ', $tag );
                         }
                         return $tag;
@@ -117,9 +117,9 @@ abstract class Scripts {
         wp_add_inline_script( $handle, "jQuery(\"#{$id}\").data(\"{$key}\", {$value});");        
     }
 
-    final protected static function tag_filter_for_type(string $rds_handle, string $type){
-        add_filter( 'script_loader_tag', function($tag, $handle) use ($rds_handle, $type){
-            if ($handle === $rds_handle){
+    final protected static function tag_filter_for_type(string $radas_handle, string $type){
+        add_filter( 'script_loader_tag', function($tag, $handle) use ($radas_handle, $type){
+            if ($handle === $radas_handle){
                 $tag = str_replace( '<script ', '<script type="' . esc_attr($type) . '" ', $tag );
             }
             return $tag;

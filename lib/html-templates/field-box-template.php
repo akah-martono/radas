@@ -9,7 +9,7 @@ namespace Radas\Lib\HTML_Templates;
 class Field_Box_Template {
     public static function register(){
         add_action('admin_footer', function(){
-            // Field_Box_Template::wrapper();
+            Field_Box_Template::wrapper();
             Field_Box_Template::field_box();
             Field_Box_Template::field_attribute_row();
             Field_Box_Template::field_option_row();
@@ -19,7 +19,7 @@ class Field_Box_Template {
         ?>
         <template id="fieldbox-wrapper-template">
             <div id="rds-fields-box-wrapper">
-                <div class="rds-fields-header rm-pb-8 rg-mt-8">
+                <div class="rds-fields-header rm-p-8">
                     <div class="rds-fields-title">
                         <h3>Fields</h3>
                         <button class="btn-new-field button button-secondary dashicons-before dashicons-plus"> New Field</button>
@@ -33,7 +33,7 @@ class Field_Box_Template {
                     <div class="rds-field-boxes"></div>
                     <div class="rds-btn-add-wrapper rds-btn-add-footer rg-pt-8"></div>
                 </div>
-            </div>            
+            </div>               
         </template>
         <?php
     }
@@ -60,8 +60,6 @@ class Field_Box_Template {
                                 <button class="no-button remove-field dashicons dashicons-trash" title="Remove field" data-fbox-handle="btn_remove_field"></button>
                                 <button class="no-button duplicate-field type-condition dashicons dashicons-admin-page pointer" title="Duplicate Field" data-fbox-handle="btn_duplicate"></button>
                                 <button class="no-button field-shortcode type-condition dashicons dashicons-shortcode pointer" title="Show shortcodes" data-fbox-handle="btn_shortcode"  data-type-handle="shortcode" disabled></button>
-                                <!-- <button class="no-button dashicons dashicons-arrow-up-alt2" data-fbox-handle="btn_move_up"></button>
-                                <button class="no-button dashicons dashicons-arrow-down-alt2" data-fbox-handle="btn_move_down"></button> -->
                                 <button class="no-button btn-expanse-collapse dashicons" data-fbox-handle="btn_expanse_collapse"></button>
                             </div>
                         </div>
@@ -110,7 +108,6 @@ class Field_Box_Template {
                                     <tr class="rds-field field_id" data-type-handle="name">
                                         <th>
                                             <label for="field_id-[fbid]">Name
-                                                <!-- <div class="rds-icon magic-wand btn-generate-id" title="Click here to generate unique name based on label"></div> -->
                                                 <button class="no-button dashicons dashicons-arrow-right-alt btn-generate-id" title="Click here to generate unique name" data-fbox-handle="btn_generate_id"></button>
                                             </label>
                                         </th>

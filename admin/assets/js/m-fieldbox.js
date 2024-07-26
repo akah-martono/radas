@@ -1,4 +1,4 @@
-import { getCounter, dialogBox, getHTMLTemplate, animateCollapse, eventList, elBinder, animate } from "../../../lib/assets/js/m-general.js";
+import { getCounter, dialogBox, getHTMLTemplate, animateCollapse, eventList, elBinder, animate } from "../../../lib/assets/js/general/m-general.js";
 import { keydownMoveIcon } from "../../../lib/assets/js/m-utils.js";
 
 const $=jQuery;

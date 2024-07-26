@@ -1,6 +1,6 @@
 import { optTable } from "./m-option-page-cpt-table.js";
 import { page } from "./m-option-page-cpt-page.js";
-import { showSpinner, popupAlert, dialogBox } from "../../../lib/assets/js/m-general.js";
+import { showSpinner, popupAlert, dialogBox } from "../../../lib/assets/js/general/m-general.js";
 
 const $=jQuery;
 

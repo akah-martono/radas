@@ -7,18 +7,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action('rds_lib_run', function () {
+add_action('radas_lib_run', function () {
     /** run only once */
-    if( did_action('rds_lib_start') > 1 ) return;
+    if( did_action('radas_lib_start') > 1 ) return;
     
-    add_action('init', 'rds_lib_register_scripts');
-    add_action('init', 'rds_lib_register_styles');
+    add_action('init', 'radas_lib_register_scripts');
+    add_action('init', 'radas_lib_register_styles');
 });
 
-function rds_lib_register_scripts(){
+function radas_lib_register_scripts(){
     Admin_Scripts_Lib::register();
 }
 
-function rds_lib_register_styles(){
+function radas_lib_register_styles(){
     Admin_Styles_Lib::register();
 }
